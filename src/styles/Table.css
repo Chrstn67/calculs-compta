@@ -765,11 +765,32 @@
         }
 
         .today-btn {
-          @extend .btn;
-          @extend .btn-secondary;
-          padding: 12px 16px;
-          white-space: nowrap;
-          font-size: 13px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 12px 20px;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 14px;
+          text-decoration: none;
+          border: 2px solid transparent;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+          backdrop-filter: blur(10px);
+          font-family: inherit;
+          background: rgba(255, 255, 255, 0.05);
+          color: var(--text-primary);
+          border-color: var(--border-color);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          &:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+            border-color: var(--border-glow);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+          }
         }
       }
 
@@ -803,13 +824,19 @@
             }
 
             input {
-              text-align: center;
-              font-weight: 700;
-              font-size: 16px;
-              border-width: 2px;
-              width: 10em;
+              padding: 14px 16px;
+              width: 150px;
+              border-radius: 14px;
+              border: 2px solid var(--border-color);
+              background: rgba(255, 255, 255, 0.05);
+              color: var(--text-primary);
+              font-size: 15px;
+              transition: all 0.3s ease;
+              backdrop-filter: blur(10px);
+              font-family: inherit;
 
-              &:focus {
+              &:hover {
+                border-color: var(--border-glow);
                 transform: scale(1.02);
               }
             }
@@ -933,10 +960,13 @@
   .filters-card {
     .filters-grid {
       padding: 20px;
-      display: grid;
+
       grid-template-columns: 2fr 1fr 1fr auto;
       gap: 16px;
-      align-items: center;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
 
       @media (max-width: 1200px) {
         grid-template-columns: 1fr 1fr;
@@ -962,16 +992,26 @@
         }
 
         input {
-          padding-left: 48px;
-          width: 100%;
-          background: rgba(255, 255, 255, 0.05);
+          padding: 14px 16px;
+          /* width: 150px; */
+          border-radius: 14px;
           border: 2px solid var(--border-color);
-          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.05);
+          color: var(--text-primary);
+          font-size: 15px;
           transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+          font-family: inherit;
+
+          &:hover {
+            border-color: var(--border-glow);
+            transform: scale(1.02);
+          }
 
           &::placeholder {
             color: var(--text-muted);
             font-weight: 500;
+            padding-left: 18px;
           }
 
           &:focus {
